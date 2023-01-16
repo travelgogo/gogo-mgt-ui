@@ -38,25 +38,26 @@ const items: MenuProps['items'] = [
 
 const AppLayout = () => {
   const [user, setUser] = useState<any>(null);
-  const res = userManager.getUser().then(user => {
-    if(user == null){
-      signinRedirect()
-    }
-    //signoutRedirect();
-    setUser(user);
-  })
-  useEffect(() =>{
-    loadUserFromStorage(store);
-  },[])
+  // const res = userManager.getUser().then(user => {
+  //   if(user == null){
+  //     signinRedirect()
+  //   }
+  //   //signoutRedirect();
+  //   setUser(user);
+  // })
+  // useEffect(() =>{
+  //   loadUserFromStorage(store);
+  // },[])
   
   return (
     <>
       <Routes>
-          <Route path="/error" element={<Error />} />
+        <LayoutInner />
+          {/* <Route path="/error" element={<Error />} />
           <Route path='/' element={user && <AuthenFlow />} />
           <Route path='/tours' element={user && <AuthenFlow />} />
           <Route path='/posts' element={user && <AuthenFlow />} />
-          <Route path='*' element={user && <Error />} />
+          <Route path='*' element={user && <Error />} /> */}
         </Routes>
     </>
   );

@@ -22,7 +22,7 @@ const items: MenuProps['items'] = [
 const LayoutInner = () => {
     return (
         <Layout className='layout'>
-            <Header />
+            {/* <Header /> */}
             <Main />
         </Layout>
     )

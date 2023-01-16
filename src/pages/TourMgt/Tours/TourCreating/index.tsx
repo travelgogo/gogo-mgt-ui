@@ -23,6 +23,7 @@ import Modal from 'antd/es/modal/Modal';
 import { DatePickerProps, RangePickerProps } from 'antd/es/date-picker';
 import dayjs from 'dayjs';
 import { UploadChangeParam } from 'antd/es/upload';
+import { Link } from 'react-router-dom';
 
 interface StartDateItem {
   no: number;
@@ -334,7 +335,7 @@ const TourCreating = (props: any) => {
   }
   return (
     <>
-      <ArrowLeftOutlined style={{ display: 'flex', fontSize: 20, cursor: 'pointer', width: '20px' }} onClick={props.onBackTourList} />
+      <Link to='/tours'><ArrowLeftOutlined style={{ display: 'flex', fontSize: 20, cursor: 'pointer', width: '20px' }} /></Link>
       <h2>Tour Creating</h2>
       <Form
         labelCol={{ span: 14 }}

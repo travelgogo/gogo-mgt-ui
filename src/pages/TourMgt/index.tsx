@@ -11,10 +11,12 @@ import Tours from './Tours';
 import TourDetail from './Tours/TourDetail';
 import TourEditing from './Tours/TourEditing';
 import TourCreating from './Tours/TourCreating';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 const { Content, Sider } = Layout;
 
 const TourMgt = () => {
+  const navigate = useNavigate();
   const renderTourDetail = (tour: any) => {
     setCurrentPage(<TourDetail tour={tour} onGoToEditing={goToEditing} onBackTourList={backTourList} />)
   }
@@ -37,7 +39,8 @@ const TourMgt = () => {
   }
 
   const onTourClick = () => {
-    setCurrentPage(<Tours onCreateTourClick={renderTourCreating} onSelectTour={renderTourDetail} />)
+    navigate("/tours")
+    // setCurrentPage(<Tours onCreateTourClick={renderTourCreating} onSelectTour={renderTourDetail} />)
   }
 
   const onCategoryClick = () => {
@@ -59,13 +62,14 @@ const TourMgt = () => {
       key: '1',
       icon: React.createElement(LaptopOutlined),
       label: 'Booking',
-      onClick: onTourBookingClick
+      
+      onClick: () => navigate("/tours/bookings")
     },
     {
       key: '8',
       icon: React.createElement(LaptopOutlined),
       label: 'Tours',
-      onClick: onTourClick
+      onClick: () => navigate("/tours")
     },
     {
       key: '2',
@@ -75,17 +79,17 @@ const TourMgt = () => {
         {
           key: '3',
           label: 'Loại du lịch',
-          onClick: onCategoryClick
+          onClick: () => navigate("/tours/categories")
         },
         {
           key: '4',
           label: 'Vùng miền',
-          onClick: onRegionClick
+          onClick: () => navigate("/tours/regions")
         },
         {
           key: '5',
           label: 'Địa điểm',
-          onClick: onLocationClick
+          onClick: () => navigate("/tours/locations")
         }
       ]
     },
@@ -126,7 +130,8 @@ const TourMgt = () => {
             background: colorBgContainer,
           }}
         >
-          {currentPage}
+          {/* {currentPage} */}
+          <Outlet />
         </Content>
       </Layout>
     </>

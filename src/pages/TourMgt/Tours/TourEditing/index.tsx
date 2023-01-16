@@ -16,6 +16,7 @@ import { ColumnsType } from 'antd/es/table';
 import { CKEditor } from '@ckeditor/ckeditor5-react/';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import TextArea from 'antd/es/input/TextArea';
+import { Link, useParams } from 'react-router-dom';
 
 interface StartDateItem {
   no: number;
@@ -27,6 +28,7 @@ interface StartDateItem {
 }
 
 const TourEditing = (props: any) => {
+  const param = useParams();
   const [componentDisabled, setComponentDisabled] = useState<boolean>(false);
 
   const onFormLayoutChange = ({ disabled }: { disabled: boolean }) => {
@@ -128,7 +130,8 @@ const TourEditing = (props: any) => {
 
   return (
     <>
-      <ArrowLeftOutlined style={{ display: 'flex', fontSize: 20, cursor: 'pointer', width: '20px' }} onClick={props.onBackTourList} />
+      <Link to={`/tours/${param.id}`}><ArrowLeftOutlined style={{ display: 'flex', fontSize: 20, cursor: 'pointer', width: '20px' }} onClick={props.onBackTourList} /></Link>
+      
       <h2>Tour Editing</h2>
       <Form
         labelCol={{ span: 14 }}

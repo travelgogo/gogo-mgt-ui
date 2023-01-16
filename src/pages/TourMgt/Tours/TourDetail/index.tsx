@@ -23,6 +23,7 @@ import {
 import { ColumnsType } from 'antd/es/table';
 import { CKEditor } from '@ckeditor/ckeditor5-react/';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 
 interface StartDateItem {
   no: number;
@@ -126,10 +127,13 @@ const TourDetail = (props: any) => {
   ];
   return (
     <>
-      <ArrowLeftOutlined style={{ display: 'flex', fontSize: 20, cursor: 'pointer', width: '20px' }} onClick={props.onBackTourList} />
+      <Link to='/tours'><ArrowLeftOutlined style={{ display: 'flex', fontSize: 20, cursor: 'pointer', width: '20px' }} /></Link>
+
       <h2>Tour Detail</h2>
       <div className='control-wrapper'>
-        <Button type='primary' size='large' icon={<EditOutlined />} onClick={props.onGoToEditing} >Edit</Button>
+        <Link to='edit'>
+          <Button type='primary' size='large' icon={<EditOutlined />} onClick={props.onGoToEditing} >Edit</Button>
+        </Link>
       </div>
       <Form
         labelCol={{ span: 14 }}
@@ -226,7 +230,7 @@ const TourDetail = (props: any) => {
             </Form.Item>
           </Col>
         </Row>
-        
+
       </Form>
     </>
   );

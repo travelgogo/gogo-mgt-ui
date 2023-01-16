@@ -5,7 +5,7 @@ import store from 'redux/store';
 let hasSignOutAction = false;
 
 export const identityApi = axios.create({
-  baseURL: '5001',
+  baseURL: _env.REACT_APP_IDENTITY_SERVER_URL,
 });
 
 export const blobApi = axios.create({
@@ -19,7 +19,7 @@ export const blobApi = axios.create({
 });
 
 export const baseApi = axios.create({
-  baseURL: 'api.locahost',
+  baseURL: _env.API_ENPOINT,
 });
 
 baseApi.interceptors.request.use((config: AxiosRequestConfig) => ({
@@ -54,7 +54,7 @@ baseApi.interceptors.response.use(
 );
 
 export const baseIDPApi = axios.create({
-  baseURL: '5001',
+  baseURL: _env.REACT_APP_IDENTITY_SERVER_URL,
 });
 
 baseIDPApi.interceptors.request.use((config: AxiosRequestConfig) => ({

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 const Error = () =>{
     return (
-        <>Error</>
+        <>Not found or unauthorized</>
     )
 }
 export default Error;

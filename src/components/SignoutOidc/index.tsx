@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import userManager from '../../utilities/identityOidc'
 import { useNavigate} from 'react-router-dom'
+import { signoutRedirectCallback } from 'services/identityService'
 
 function SignoutOidc() {
   const navigate = useNavigate()
   useEffect(() => {
     async function signoutAsync() {
-      await userManager.signoutRedirectCallback()
+      await signoutRedirectCallback()
       navigate('/')
     }
     signoutAsync()

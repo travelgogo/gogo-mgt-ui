@@ -4,8 +4,10 @@ import { Button, Col, Modal, Popconfirm, Row, Select, Space, Table, Tag, Upload 
 import type { ColumnsType } from 'antd/es/table';
 import { PlusOutlined, SearchOutlined, UploadOutlined } from '@ant-design/icons';
 import SelectControl from '../../../components/SelectControl';
+import { Link } from 'react-router-dom';
 
 interface TourItem {
+    id:number;
     no: number;
     code: string;
     name: string;
@@ -32,7 +34,7 @@ const Tours = (props: any) => {
     }
 
     const onCreateTourClick = () => {
-        
+
     }
 
     const columns: ColumnsType<TourItem> = [
@@ -81,7 +83,7 @@ const Tours = (props: any) => {
             key: 'action',
             render: (_, record) => (
                 <Space size="middle">
-                    <a onClick={() => { props.onSelectTour(record); }} >View</a>
+                    <Link to={record.id.toString()} >View</Link>
                 </Space>
             ),
         },
@@ -89,6 +91,7 @@ const Tours = (props: any) => {
 
     const data: TourItem[] = [
         {
+            id: 1,
             no: 1,
             code: 'GXR126',
             name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
@@ -99,6 +102,7 @@ const Tours = (props: any) => {
             status: 'Opening'
         },
         {
+            id: 1,
             no: 1,
             code: 'GXR126',
             name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
@@ -109,6 +113,7 @@ const Tours = (props: any) => {
             status: 'Opening'
         },
         {
+            id: 1,
             no: 1,
             code: 'GXR126',
             name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
@@ -119,6 +124,7 @@ const Tours = (props: any) => {
             status: 'Opening'
         },
         {
+            id: 1,
             no: 1,
             code: 'GXR126',
             name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
@@ -129,6 +135,7 @@ const Tours = (props: any) => {
             status: 'Opening'
         },
         {
+            id: 1,
             no: 1,
             code: 'GXR126',
             name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
@@ -139,6 +146,7 @@ const Tours = (props: any) => {
             status: 'Opening'
         },
         {
+            id: 1,
             no: 1,
             code: 'GXR126',
             name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
@@ -149,6 +157,7 @@ const Tours = (props: any) => {
             status: 'Opening'
         },
         {
+            id: 1,
             no: 1,
             code: 'GXR126',
             name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
@@ -159,6 +168,7 @@ const Tours = (props: any) => {
             status: 'Opening'
         },
         {
+            id: 1,
             no: 1,
             code: 'GXR126',
             name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
@@ -169,6 +179,7 @@ const Tours = (props: any) => {
             status: 'Opening'
         },
         {
+            id: 1,
             no: 1,
             code: 'GXR126',
             name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
@@ -179,6 +190,7 @@ const Tours = (props: any) => {
             status: 'Opening'
         },
         {
+            id: 1,
             no: 1,
             code: 'GXR126',
             name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
@@ -189,6 +201,7 @@ const Tours = (props: any) => {
             status: 'Opening'
         },
         {
+            id: 1,
             no: 1,
             code: 'GXR126',
             name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
@@ -199,6 +212,7 @@ const Tours = (props: any) => {
             status: 'Opening'
         },
         {
+            id: 1,
             no: 1,
             code: 'GXR126',
             name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
@@ -209,6 +223,7 @@ const Tours = (props: any) => {
             status: 'Opening'
         },
         {
+            id: 1,
             no: 1,
             code: 'GXR126',
             name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
@@ -219,6 +234,7 @@ const Tours = (props: any) => {
             status: 'Opening'
         },
         {
+            id: 1,
             no: 1,
             code: 'GXR126',
             name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
@@ -229,6 +245,7 @@ const Tours = (props: any) => {
             status: 'Opening'
         },
         {
+            id: 1,
             no: 1,
             code: 'GXR126',
             name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
@@ -239,6 +256,7 @@ const Tours = (props: any) => {
             status: 'Opening'
         },
         {
+            id: 1,
             no: 1,
             code: 'GXR126',
             name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
@@ -249,6 +267,7 @@ const Tours = (props: any) => {
             status: 'Opening'
         },
         {
+            id: 1,
             no: 1,
             code: 'GXR126',
             name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
@@ -264,7 +283,7 @@ const Tours = (props: any) => {
         <>
             <Row>
                 <Col span={16}>
-                    <div style={{display: 'flex', margin: '20px 0'}}>
+                    <div style={{ display: 'flex', margin: '20px 0' }}>
                         <SelectControl
                             data={{
                                 name: "Status",
@@ -277,14 +296,17 @@ const Tours = (props: any) => {
                         </Button>
                     </div>
                 </Col>
-                <Col span={8} style={{display: 'flex', flexDirection: 'row-reverse'}}>
-                    <Button type="primary" 
-                        size='large' 
-                        style={{ margin: '46px 0 20px 30px' }} 
-                        icon={<PlusOutlined />}
-                        onClick={props.onCreateTourClick}>
-                        Create tour
-                    </Button>
+                <Col span={8} style={{ display: 'flex', flexDirection: 'row-reverse' }}>
+                    <Link to='create'>
+                        <Button type="primary"
+                            size='large'
+                            style={{ margin: '46px 0 20px 30px' }}
+                            icon={<PlusOutlined />}
+                            >
+                            Create tour
+                        </Button>
+                    </Link>
+
                 </Col>
             </Row>
             <Table columns={columns} dataSource={data} />

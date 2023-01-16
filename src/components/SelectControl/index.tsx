@@ -31,9 +31,7 @@ const SelectControl = (props: any) =>{
                 >
                     {props.data.options.map((element: any)=> {
                         return (
-                            <>
-                                <Option key={element.id} value={element.id} >{element.name}</Option>
-                            </>
+                            <Option key={element.id} value={element.id} >{element.name}</Option>
                         );
                     })}
                 </Select>
