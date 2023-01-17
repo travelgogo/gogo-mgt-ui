@@ -1,6 +1,6 @@
 import { UserManager } from 'oidc-client';
 import React, { ReactElement, useEffect, useRef } from 'react';
-import { storeUser } from 'redux/actions/authAction'
+import { storeUser } from 'redux/actionCreators/authAction'
 import { setAuthHeader } from './axiosHeaders';
 
 interface AuthProviderProps{

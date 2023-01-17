@@ -3,60 +3,13 @@ import './index.scss';
 import { LaptopOutlined, UserOutlined } from '@ant-design/icons';
 import { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
-import TourCategory from './TourCategory';
-import TourRegion from './TourRegion';
-import TourLocation from './TourLocation';
-import TourBooking from './TourBooking';
-import Tours from './Tours';
-import TourDetail from './Tours/TourDetail';
-import TourEditing from './Tours/TourEditing';
-import TourCreating from './Tours/TourCreating';
 import { Outlet, useNavigate } from 'react-router-dom';
 
 const { Content, Sider } = Layout;
 
 const TourMgt = () => {
   const navigate = useNavigate();
-  const renderTourDetail = (tour: any) => {
-    setCurrentPage(<TourDetail tour={tour} onGoToEditing={goToEditing} onBackTourList={backTourList} />)
-  }
-  const renderTourCreating = () => {
-    console.log('click')
-    setCurrentPage(<TourCreating onBackTourList={backTourList} />)
-  }
-  const [currentPage, setCurrentPage] = useState(<Tours onCreateTourClick={renderTourCreating} onSelectTour={renderTourDetail} />)
-
-  const backTourList = () => {
-    setCurrentPage(<Tours onCreateTourClick={renderTourCreating} onSelectTour={renderTourDetail} />)
-  }
-
-  const goToEditing = () => {
-    setCurrentPage(<TourEditing onBackTourList={backTourList} />)
-  }
-
-  const onTourBookingClick = () => {
-    setCurrentPage(<TourBooking />)
-  }
-
-  const onTourClick = () => {
-    navigate("/tours")
-    // setCurrentPage(<Tours onCreateTourClick={renderTourCreating} onSelectTour={renderTourDetail} />)
-  }
-
-  const onCategoryClick = () => {
-    setCurrentPage(<TourCategory />)
-  }
-
-  const onRegionClick = () => {
-    setCurrentPage(<TourRegion />)
-  }
-
-  const onLocationClick = () => {
-    setCurrentPage(<TourLocation />)
-  }
-
-
-
+ 
   const subNavs: MenuProps['items'] = [
     {
       key: '1',
@@ -130,7 +83,6 @@ const TourMgt = () => {
             background: colorBgContainer,
           }}
         >
-          {/* {currentPage} */}
           <Outlet />
         </Content>
       </Layout>

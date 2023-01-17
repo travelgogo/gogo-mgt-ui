@@ -23,9 +23,10 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'redux/reducers';
 import { signinRedirect } from 'services/identityService';
 
-const RequiredAuth = () => {
+const RequiredAuth = ({roles}: any) => {
   const user = useSelector((state : RootState) => state.auth.user)
   console.log(user);
+  
   if(!user){
     signinRedirect();
     return <></>

@@ -8,7 +8,7 @@ import userManager from '../utilities/identityOidc';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SigninOidc from '../components/SigninOidc';
 import Error from 'components/Error';
-import { loadUserFromStorage, signinRedirect, signoutRedirect } from 'services/identityService';
+// import { loadUserFromStorage, signinRedirect, signoutRedirect } from 'services/identityService';
 import store from 'redux/store';
 import TourMgt from './TourMgt';
 import LayoutInner from './LayoutInner';

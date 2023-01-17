@@ -1,17 +1,17 @@
 
-import { storeUserError, storeUser } from '../redux/actions/authAction'
+import { storeUserError, storeUser } from '../redux/actionCreators/authAction'
 import userManager from "utilities/identityOidc";
 
-export async function loadUserFromStorage(store: any) {
-  try {
-    let user = await userManager.getUser()
-    if (!user) { return store.dispatch(storeUserError()) }
-    store.dispatch(storeUser(user))
-  } catch (e) {
-    console.error(`User not found: ${e}`)
-    store.dispatch(storeUserError())
-  }
-}
+// export async function loadUserFromStorage(store: any) {
+//   try {
+//     let user = await userManager.getUser()
+//     if (!user) { return store.dispatch(storeUserError()) }
+//     store.dispatch(storeUser(user))
+//   } catch (e) {
+//     console.error(`User not found: ${e}`)
+//     store.dispatch(storeUserError())
+//   }
+// }
 
 export function signinRedirect() {
   return userManager.signinRedirect()
