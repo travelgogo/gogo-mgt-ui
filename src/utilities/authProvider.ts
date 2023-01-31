@@ -1,6 +1,6 @@
 import { UserManager } from 'oidc-client';
 import React, { ReactElement, useEffect, useRef } from 'react';
-import { storeUser } from 'redux/actionCreators/authAction'
+import { storeUser } from 'redux/actionCreators/auth'
 import { setAuthHeader } from './axiosHeaders';
 
 interface AuthProviderProps{
@@ -13,6 +13,7 @@ const AuthProvider = ({ userManager, store, children }: AuthProviderProps) => {
 
   useEffect(() => {
     const onUserLoaded = (user: any) => {
+      setAuthHeader(user.access_token)
       store.dispatch(storeUser(user))
     }
 

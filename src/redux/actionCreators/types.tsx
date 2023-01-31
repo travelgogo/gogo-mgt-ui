@@ -3,3 +3,7 @@ export const USER_SIGNED_OUT = 'USER_SIGNED_OUT'
 export const USER_EXPIRED = 'USER_EXPIRED'
 export const STORE_USER_ERROR = 'STORE_USER_ERROR'
 export const LOADING_USER = 'LOADING_USER'
+export const GET_TOUR_DETAIL = 'GET_TOUR_DETAIL'
+export const GET_TOURS = 'GET_TOURS'
+export const GET_TOURS_SUCCESS = 'GET_TOURS_SUCCESS'
+

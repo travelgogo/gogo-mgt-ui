@@ -37,8 +37,9 @@
 //     }
 //   }
 import { createReducer, PayloadAction } from "@reduxjs/toolkit";
-import { storeUser, storeUserError } from "redux/actionCreators/authAction";
+import { storeUser, storeUserError } from "redux/actionCreators/auth";
 import IUser from "types/userIdentity";
+import { setAuthHeader } from "utilities/axiosHeaders";
 
 const initialState = {
   user: null,

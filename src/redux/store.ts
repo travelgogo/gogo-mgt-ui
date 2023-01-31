@@ -12,18 +12,24 @@
 
 // export default store;
 
-import {} from '@reduxjs/toolkit'
 import { configureStore } from '@reduxjs/toolkit'
-import authReducer from './reducers/authReducer';
+import createSagaMiddleware from 'redux-saga';
+import tourSaga from './saga/tour';
+import authReducer from './reducers/auth';
+import tourReducer from './reducers/tour';
 
+const sagaMiddleware = createSagaMiddleware();
 const store = configureStore({
   reducer:{
-    auth: authReducer
+    auth: authReducer,
+    tour: tourReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,
-    })
+      thunk: false
+    }).concat(sagaMiddleware)
 })
+sagaMiddleware.run(tourSaga);
 
 export default store;

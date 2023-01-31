@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.scss';
 import { Button, Col, Modal, Popconfirm, Row, Select, Space, Table, Tag, Upload } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { PlusOutlined, SearchOutlined, UploadOutlined } from '@ant-design/icons';
 import SelectControl from '../../../components/SelectControl';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { getTours } from 'redux/actionCreators/tour';
+import { useAppSelector } from 'redux/reducers';
 
 interface TourItem {
     id:number;
@@ -24,17 +27,39 @@ const bookingStatuses = [
 ]
 
 const Tours = (props: any) => {
-
-    const handleChange = (value: string) => {
-        console.log(`selected ${value}`);
-    };
+    const dispatch = useDispatch();
+    const data = useAppSelector(s => s.tour.tours)
+    const isFetchingData = useAppSelector(s => s.tour.isFetchingTour)
+    // const tmp: TourItem[] = [
+    //     {
+    //         id: 1,
+    //         no: 1,
+    //         code: 'GXR126',
+    //         name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
+    //         price: '599.25',
+    //         startDate: '2022-12-10',
+    //         seatRemaining: 10,
+    //         startingGate: 'Ho Chi Minh City',
+    //         status: 'Opening'
+    //     },
+    //     {
+    //         id: 1,
+    //         no: 1,
+    //         code: 'GXR126',
+    //         name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
+    //         price: '599.25',
+    //         startDate: '2022-12-10',
+    //         seatRemaining: 10,
+    //         startingGate: 'Ho Chi Minh City',
+    //         status: 'Opening'
+    //     }
+    // ]
+    useEffect(() => {
+        dispatch(getTours())
+    },[])
 
     const onBookingStatusSelect = (value: any) => {
         console.log(`selected ${value}`);
-    }
-
-    const onCreateTourClick = () => {
-
     }
 
     const columns: ColumnsType<TourItem> = [
@@ -89,195 +114,195 @@ const Tours = (props: any) => {
         },
     ];
 
-    const data: TourItem[] = [
-        {
-            id: 1,
-            no: 1,
-            code: 'GXR126',
-            name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
-            price: '599.25',
-            startDate: '2022-12-10',
-            seatRemaining: 10,
-            startingGate: 'Ho Chi Minh City',
-            status: 'Opening'
-        },
-        {
-            id: 1,
-            no: 1,
-            code: 'GXR126',
-            name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
-            price: '599.25',
-            startDate: '2022-12-10',
-            seatRemaining: 10,
-            startingGate: 'Ho Chi Minh City',
-            status: 'Opening'
-        },
-        {
-            id: 1,
-            no: 1,
-            code: 'GXR126',
-            name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
-            price: '599.25',
-            startDate: '2022-12-10',
-            seatRemaining: 10,
-            startingGate: 'Ho Chi Minh City',
-            status: 'Opening'
-        },
-        {
-            id: 1,
-            no: 1,
-            code: 'GXR126',
-            name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
-            price: '599.25',
-            startDate: '2022-12-10',
-            seatRemaining: 10,
-            startingGate: 'Ho Chi Minh City',
-            status: 'Opening'
-        },
-        {
-            id: 1,
-            no: 1,
-            code: 'GXR126',
-            name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
-            price: '599.25',
-            startDate: '2022-12-10',
-            seatRemaining: 10,
-            startingGate: 'Ho Chi Minh City',
-            status: 'Opening'
-        },
-        {
-            id: 1,
-            no: 1,
-            code: 'GXR126',
-            name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
-            price: '599.25',
-            startDate: '2022-12-10',
-            seatRemaining: 10,
-            startingGate: 'Ho Chi Minh City',
-            status: 'Opening'
-        },
-        {
-            id: 1,
-            no: 1,
-            code: 'GXR126',
-            name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
-            price: '599.25',
-            startDate: '2022-12-10',
-            seatRemaining: 10,
-            startingGate: 'Ho Chi Minh City',
-            status: 'Opening'
-        },
-        {
-            id: 1,
-            no: 1,
-            code: 'GXR126',
-            name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
-            price: '599.25',
-            startDate: '2022-12-10',
-            seatRemaining: 10,
-            startingGate: 'Ho Chi Minh City',
-            status: 'Opening'
-        },
-        {
-            id: 1,
-            no: 1,
-            code: 'GXR126',
-            name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
-            price: '599.25',
-            startDate: '2022-12-10',
-            seatRemaining: 10,
-            startingGate: 'Ho Chi Minh City',
-            status: 'Opening'
-        },
-        {
-            id: 1,
-            no: 1,
-            code: 'GXR126',
-            name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
-            price: '599.25',
-            startDate: '2022-12-10',
-            seatRemaining: 10,
-            startingGate: 'Ho Chi Minh City',
-            status: 'Opening'
-        },
-        {
-            id: 1,
-            no: 1,
-            code: 'GXR126',
-            name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
-            price: '599.25',
-            startDate: '2022-12-10',
-            seatRemaining: 10,
-            startingGate: 'Ho Chi Minh City',
-            status: 'Opening'
-        },
-        {
-            id: 1,
-            no: 1,
-            code: 'GXR126',
-            name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
-            price: '599.25',
-            startDate: '2022-12-10',
-            seatRemaining: 10,
-            startingGate: 'Ho Chi Minh City',
-            status: 'Opening'
-        },
-        {
-            id: 1,
-            no: 1,
-            code: 'GXR126',
-            name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
-            price: '599.25',
-            startDate: '2022-12-10',
-            seatRemaining: 10,
-            startingGate: 'Ho Chi Minh City',
-            status: 'Opening'
-        },
-        {
-            id: 1,
-            no: 1,
-            code: 'GXR126',
-            name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
-            price: '599.25',
-            startDate: '2022-12-10',
-            seatRemaining: 10,
-            startingGate: 'Ho Chi Minh City',
-            status: 'Opening'
-        },
-        {
-            id: 1,
-            no: 1,
-            code: 'GXR126',
-            name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
-            price: '599.25',
-            startDate: '2022-12-10',
-            seatRemaining: 10,
-            startingGate: 'Ho Chi Minh City',
-            status: 'Opening'
-        },
-        {
-            id: 1,
-            no: 1,
-            code: 'GXR126',
-            name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
-            price: '599.25',
-            startDate: '2022-12-10',
-            seatRemaining: 10,
-            startingGate: 'Ho Chi Minh City',
-            status: 'Opening'
-        },
-        {
-            id: 1,
-            no: 1,
-            code: 'GXR126',
-            name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
-            price: '599.25',
-            startDate: '2022-12-10',
-            seatRemaining: 10,
-            startingGate: 'Ho Chi Minh City',
-            status: 'Opening'
-        },
-    ];
+    // const data: TourItem[] = [
+    //     {
+    //         id: 1,
+    //         no: 1,
+    //         code: 'GXR126',
+    //         name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
+    //         price: '599.25',
+    //         startDate: '2022-12-10',
+    //         seatRemaining: 10,
+    //         startingGate: 'Ho Chi Minh City',
+    //         status: 'Opening'
+    //     },
+    //     {
+    //         id: 1,
+    //         no: 1,
+    //         code: 'GXR126',
+    //         name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
+    //         price: '599.25',
+    //         startDate: '2022-12-10',
+    //         seatRemaining: 10,
+    //         startingGate: 'Ho Chi Minh City',
+    //         status: 'Opening'
+    //     },
+    //     {
+    //         id: 1,
+    //         no: 1,
+    //         code: 'GXR126',
+    //         name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
+    //         price: '599.25',
+    //         startDate: '2022-12-10',
+    //         seatRemaining: 10,
+    //         startingGate: 'Ho Chi Minh City',
+    //         status: 'Opening'
+    //     },
+    //     {
+    //         id: 1,
+    //         no: 1,
+    //         code: 'GXR126',
+    //         name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
+    //         price: '599.25',
+    //         startDate: '2022-12-10',
+    //         seatRemaining: 10,
+    //         startingGate: 'Ho Chi Minh City',
+    //         status: 'Opening'
+    //     },
+    //     {
+    //         id: 1,
+    //         no: 1,
+    //         code: 'GXR126',
+    //         name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
+    //         price: '599.25',
+    //         startDate: '2022-12-10',
+    //         seatRemaining: 10,
+    //         startingGate: 'Ho Chi Minh City',
+    //         status: 'Opening'
+    //     },
+    //     {
+    //         id: 1,
+    //         no: 1,
+    //         code: 'GXR126',
+    //         name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
+    //         price: '599.25',
+    //         startDate: '2022-12-10',
+    //         seatRemaining: 10,
+    //         startingGate: 'Ho Chi Minh City',
+    //         status: 'Opening'
+    //     },
+    //     {
+    //         id: 1,
+    //         no: 1,
+    //         code: 'GXR126',
+    //         name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
+    //         price: '599.25',
+    //         startDate: '2022-12-10',
+    //         seatRemaining: 10,
+    //         startingGate: 'Ho Chi Minh City',
+    //         status: 'Opening'
+    //     },
+    //     {
+    //         id: 1,
+    //         no: 1,
+    //         code: 'GXR126',
+    //         name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
+    //         price: '599.25',
+    //         startDate: '2022-12-10',
+    //         seatRemaining: 10,
+    //         startingGate: 'Ho Chi Minh City',
+    //         status: 'Opening'
+    //     },
+    //     {
+    //         id: 1,
+    //         no: 1,
+    //         code: 'GXR126',
+    //         name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
+    //         price: '599.25',
+    //         startDate: '2022-12-10',
+    //         seatRemaining: 10,
+    //         startingGate: 'Ho Chi Minh City',
+    //         status: 'Opening'
+    //     },
+    //     {
+    //         id: 1,
+    //         no: 1,
+    //         code: 'GXR126',
+    //         name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
+    //         price: '599.25',
+    //         startDate: '2022-12-10',
+    //         seatRemaining: 10,
+    //         startingGate: 'Ho Chi Minh City',
+    //         status: 'Opening'
+    //     },
+    //     {
+    //         id: 1,
+    //         no: 1,
+    //         code: 'GXR126',
+    //         name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
+    //         price: '599.25',
+    //         startDate: '2022-12-10',
+    //         seatRemaining: 10,
+    //         startingGate: 'Ho Chi Minh City',
+    //         status: 'Opening'
+    //     },
+    //     {
+    //         id: 1,
+    //         no: 1,
+    //         code: 'GXR126',
+    //         name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
+    //         price: '599.25',
+    //         startDate: '2022-12-10',
+    //         seatRemaining: 10,
+    //         startingGate: 'Ho Chi Minh City',
+    //         status: 'Opening'
+    //     },
+    //     {
+    //         id: 1,
+    //         no: 1,
+    //         code: 'GXR126',
+    //         name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
+    //         price: '599.25',
+    //         startDate: '2022-12-10',
+    //         seatRemaining: 10,
+    //         startingGate: 'Ho Chi Minh City',
+    //         status: 'Opening'
+    //     },
+    //     {
+    //         id: 1,
+    //         no: 1,
+    //         code: 'GXR126',
+    //         name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
+    //         price: '599.25',
+    //         startDate: '2022-12-10',
+    //         seatRemaining: 10,
+    //         startingGate: 'Ho Chi Minh City',
+    //         status: 'Opening'
+    //     },
+    //     {
+    //         id: 1,
+    //         no: 1,
+    //         code: 'GXR126',
+    //         name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
+    //         price: '599.25',
+    //         startDate: '2022-12-10',
+    //         seatRemaining: 10,
+    //         startingGate: 'Ho Chi Minh City',
+    //         status: 'Opening'
+    //     },
+    //     {
+    //         id: 1,
+    //         no: 1,
+    //         code: 'GXR126',
+    //         name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
+    //         price: '599.25',
+    //         startDate: '2022-12-10',
+    //         seatRemaining: 10,
+    //         startingGate: 'Ho Chi Minh City',
+    //         status: 'Opening'
+    //     },
+    //     {
+    //         id: 1,
+    //         no: 1,
+    //         code: 'GXR126',
+    //         name: 'Rovaniemi - Runua Wildlife Park - Saariselka',
+    //         price: '599.25',
+    //         startDate: '2022-12-10',
+    //         seatRemaining: 10,
+    //         startingGate: 'Ho Chi Minh City',
+    //         status: 'Opening'
+    //     },
+    // ];
 
     return (
         <>
@@ -309,7 +334,7 @@ const Tours = (props: any) => {
 
                 </Col>
             </Row>
-            <Table columns={columns} dataSource={data} />
+            <Table loading={isFetchingData} columns={columns} dataSource={data} />
         </>
     )
 }

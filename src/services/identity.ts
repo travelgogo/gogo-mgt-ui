@@ -1,5 +1,5 @@
 
-import { storeUserError, storeUser } from '../redux/actionCreators/authAction'
+import { storeUserError, storeUser } from '../redux/actionCreators/auth'
 import userManager from "utilities/identityOidc";
 
 // export async function loadUserFromStorage(store: any) {

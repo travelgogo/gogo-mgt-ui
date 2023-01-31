@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import userManager from './utilities/identityOidc'
-import { Provider } from 'react-redux';
+import { Provider, useDispatch } from 'react-redux';
 import store from 'redux/store'
 import AuthProvider from './utilities/authProvider'
 import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
@@ -20,13 +20,19 @@ import TourLocation from 'pages/TourMgt/TourLocation';
 import TourRegion from 'pages/TourMgt/TourRegion';
 import Error from 'components/Error';
 import { useSelector } from 'react-redux';
-import { RootState } from 'redux/reducers';
-import { signinRedirect } from 'services/identityService';
+import { RootState, useAppSelector } from 'redux/reducers';
+import { signinRedirect } from 'services/identity';
+import { getTourDetail } from 'redux/actionCreators/tour';
 
 const RequiredAuth = ({roles}: any) => {
   const user = useSelector((state : RootState) => state.auth.user)
-  console.log(user);
-  
+  // const tour = useSelector((state : RootState) => state.tour.tour)
+  //const tmp = useAppSelector(x => x.tour )
+  // console.log(tour);
+  const dispatch = useDispatch();
+  //dispatch(getTourDetail('1'))
+  // console.log(tour);
+
   if(!user){
     signinRedirect();
     return <></>

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { signinRedirectCallback } from "services/identityService";
+import { signinRedirectCallback } from "services/identity";
 
 const SigninOidc = () => {
     //debugger;

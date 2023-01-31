@@ -5,7 +5,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import IUser from "types/userIdentity";
 import './index.scss'
-import {signoutRedirect} from '../../services/identityService'
+import {signoutRedirect} from '../../services/identity'
 const menuItems: MenuProps['items'] = [
     { name: 'Quản lý tour', link: '/tours' },
     { name: 'Quản lý bài viết', link: '/post' },

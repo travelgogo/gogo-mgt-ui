@@ -17,7 +17,7 @@ export const blobApi = axios.create({
     'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
   },
 });
-
+export const ax = axios;
 export const baseApi = axios.create({
   baseURL: _env.API_ENPOINT,
 });
@@ -25,7 +25,7 @@ export const baseApi = axios.create({
 baseApi.interceptors.request.use((config: AxiosRequestConfig) => ({
   ...config,
   headers: {
-    Authorization: `Bearer ${localStorage.getItem(CONSTANTS.ACCESS_TOKEN)}`,
+    Authorization: axios.defaults.headers.common['Authorization'],
     'cache-control': 'no-cache',
   },
 }));
